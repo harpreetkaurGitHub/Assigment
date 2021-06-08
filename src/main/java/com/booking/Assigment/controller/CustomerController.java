@@ -1,6 +1,7 @@
 package com.booking.Assigment.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import com.booking.Assigment.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,11 @@ public class CustomerController {
 	public ResponseEntity<Void> deleteCustomer(@PathVariable("id") Integer id) {
 		CustomerService.deleteCustomer(id);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-	}	
+	}
+
+	@GetMapping("customerDetail/{name}")
+	public ResponseEntity<Map<String,Object>> getCustomerDetail(@PathVariable String name){
+		Map<String,Object> map = CustomerService.getCustomerDetail(name);
+		return new ResponseEntity<Map<String,Object>>(map,HttpStatus.OK);
+	}
 } 

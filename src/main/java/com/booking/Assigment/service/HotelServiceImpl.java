@@ -5,10 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.booking.Assigment.dao.HotelDAO;
 import com.booking.Assigment.dao.ReservationDAO;
-import com.booking.Assigment.entity.Hotel;
-import com.booking.Assigment.entity.Reservation;
-import com.booking.Assigment.entity.Room;
-import com.booking.Assigment.entity.Search;
+import com.booking.Assigment.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -60,7 +57,7 @@ public class HotelServiceImpl implements HotelService {
 					}
 				}
 			}
-			if (search.isWifi()){
+			if (search.isWifi()) {
 				for (Iterator<Hotel> iterator = hotelList.iterator(); iterator.hasNext();) {
 					Hotel hotel = iterator.next();
 					if(!hotel.getAmenity().getAmenityWifi().equals(search.isWifi())) {

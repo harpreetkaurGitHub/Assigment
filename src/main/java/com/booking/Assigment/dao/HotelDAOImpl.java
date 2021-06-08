@@ -43,7 +43,7 @@ public class HotelDAOImpl implements HotelDAO {
 
 	@Override
 	public boolean roomExist(int roomId) {
-		String hql = "FROM Reservation as hot WHERE hot.roomId = ?";
+		String hql = "FROM Reservation as hot WHERE hot.roomId = ?1";
 		int count = entityManager.createQuery(hql).setParameter(1, roomId)
 				.getResultList().size();
 		return count > 0 ? true : false;

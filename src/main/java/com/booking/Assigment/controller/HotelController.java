@@ -22,6 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Controller
 @RequestMapping("booking")
 public class HotelController {
+
 	@Autowired
 	private HotelService HotelService;
 

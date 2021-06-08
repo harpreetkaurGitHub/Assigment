@@ -48,4 +48,10 @@ public class CustomerDAOImpl implements CustomerDAO {
 		              .setParameter(2, customerGender).getResultList().size();
 		return count > 0 ? true : false;
 	}
+
+	@Override
+	public Customer getCustomerByName(String name){
+		String hql = "FROM Customer as cus where cus.customerName = ?1";
+		return (Customer) entityManager.createQuery(hql).setParameter(1,name).getSingleResult();
+	}
 }

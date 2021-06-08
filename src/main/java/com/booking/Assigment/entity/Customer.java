@@ -33,6 +33,9 @@ public class Customer implements Serializable {
 	@Column(name="cus_bio")	
 	private String customerBio;
 
+	@OneToOne()
+	@JoinColumn(name = "cus_id")
+	private Reservation reservation;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", orphanRemoval = true)
 	@OnDelete(action=OnDeleteAction.CASCADE)
@@ -80,5 +83,12 @@ public class Customer implements Serializable {
 	public void setReviews(Set<Review> reviews) {
 		this.reviews = reviews;
 	}
-	
+
+	public Reservation getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(Reservation reservation) {
+		this.reservation = reservation;
+	}
 }

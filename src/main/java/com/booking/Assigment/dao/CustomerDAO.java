@@ -18,4 +18,6 @@ public interface CustomerDAO {
 
 	boolean CustomerExists(String customerName, String customerGender);
 
+	Customer getCustomerByName(String customerName);
+
 }

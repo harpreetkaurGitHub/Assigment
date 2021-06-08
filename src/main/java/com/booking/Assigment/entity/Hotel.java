@@ -32,22 +32,6 @@ public class Hotel implements Serializable {
 	@Column(name="hot_rating")
 	private int rating;
 
-	public int getRating() {
-		return rating;
-	}
-
-	public void setRating(int rating) {
-		this.rating = rating;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel", orphanRemoval = true)
 	@JsonIgnore
 	private Set<Review> reviews = new HashSet<Review>();
@@ -62,6 +46,22 @@ public class Hotel implements Serializable {
 
 	public List<Room> getRooms() {
 		return rooms;
+	}
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	public void setRooms(List<Room> rooms) {
